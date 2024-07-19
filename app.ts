@@ -2,11 +2,11 @@
 let todoCont = document.querySelectorAll(".todo-container")[0];
 let todoInp = document.querySelectorAll(".todo-container input")[0] as HTMLInputElement;
 let updateCont = document.querySelectorAll(".update-container")[0];
-let updateInp = document.querySelectorAll(".todo-container input")[0];
+let updateInp = document.querySelectorAll(".update-container input")[0] as HTMLInputElement;
 let printCont = document.querySelectorAll(".print-data")[0];
 let storeData: string[] = [];
 
-// Create 
+// Create     ___1____
 function create () {
     let reciveInp = todoInp.value;
     storeData.push(reciveInp);
@@ -15,7 +15,7 @@ function create () {
 }
 
 
-// read
+// read       _____2____
 function read () {
     printCont.innerHTML = "";
     for(let i = 0; i < storeData.length; i++){
@@ -29,13 +29,41 @@ function read () {
     }
 }
 
-// update
+
+
+// update       _____4_____
 function edit(index: number) {
-    console.log(index)
+    toggleTodo()
+    updateInp.value = storeData[index]
+}
+
+
+
+// _____5_______
+let isEditing: boolean = false;
+function toggleTodo () {
+    
+    if(!isEditing){
+        todoCont.className += " hide";
+        updateCont.className = "";
+    }
+    else{
+        todoCont.className = "";
+        updateCont.className += " hide";
+    }
+    isEditing = true
+}
+
+// save _____6_____
+
+function save (ind: number) {
+   console.log( storeData.splice(ind, 1, updateInp.value ))
+   read()
 
 }
 
-// delete
+
+// delete       _____3_____
 function deleteFun(index: number) {
     storeData.splice(index, 1)
     read()
