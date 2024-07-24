@@ -8,28 +8,37 @@
 </head>
 <body>
 
-
-
-
-    <!-- create container -->
-    <div class="todo-container">
-        <input type="text" name="create-todo" value="" placeholder="Enter Todo" />
-        <button onclick="create()">Add</button>
-    </div>
-
-    <!-- update container -->   
-    <div class="update-container hide">
-        <input type="text" name="update-todo" value="" />
-        <button onclick="save()">Save</button>
-    </div>
-
-    <!-- print data container -->
-    <div class="print-data">
-
-    </div>
-
-
-
-    <script src="app.js"></script>
+            <div id="particles-js"></div> 
+            <div class="count-particles ">
+                <div class="my-cont">
+                  <!-- create container -->
+                <div class="todo-container">
+                    <input type="text" name="create-todo" value="" placeholder="Enter Todo" />
+                    <button onclick="create()">Add</button>
+                </div>
+            
+                <!-- update container -->   
+                <div class="update-container hide">
+                    <input type="text" name="update-todo" value="" />
+                    <button onclick="save()">Save</button>
+                </div>
+            
+                <!-- print data container -->
+                <div class="print-data">
+            
+                </div>
+            </div>
+            </div>
+            
+        
+        
+            <!-- <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+            <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>particles.js container <div id="particles-js"></div>
+            <div class="count-particles"> <span class="js-count-particles">--</span> particles </div>  -->
+            <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+            <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+        
+            <script src="app.js"></script>
+            <script src="bg.js"></script>
 </body>
 </html>

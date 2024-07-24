@@ -6,6 +6,7 @@ let updateCont = document.querySelectorAll(".update-container")[0];
 let updateInp = document.querySelectorAll(".update-container input")[0];
 let printCont = document.querySelectorAll(".print-data")[0];
 let storeData = [];
+let currentIndex = -1;
 // Create     ___1____
 function create() {
     let reciveInp = todoInp.value;
@@ -29,6 +30,7 @@ function read() {
 // update       _____4_____
 function edit(index) {
     toggleTodo();
+    currentIndex = index;
     updateInp.value = storeData[index];
 }
 // _____5_______
@@ -42,11 +44,12 @@ function toggleTodo() {
         todoCont.className = "";
         updateCont.className += " hide";
     }
-    isEditing = true;
+    isEditing = !isEditing;
 }
 // save _____6_____
 function save(ind) {
-    console.log(storeData.splice(ind, 1, updateInp.value));
+    toggleTodo();
+    storeData[currentIndex] = updateInp.value;
     read();
 }
 // delete       _____3_____
@@ -54,3 +57,4 @@ function deleteFun(index) {
     storeData.splice(index, 1);
     read();
 }
+// codepen

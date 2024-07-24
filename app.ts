@@ -5,6 +5,8 @@ let updateCont = document.querySelectorAll(".update-container")[0];
 let updateInp = document.querySelectorAll(".update-container input")[0] as HTMLInputElement;
 let printCont = document.querySelectorAll(".print-data")[0];
 let storeData: string[] = [];
+let currentIndex = -1;
+
 
 // Create     ___1____
 function create () {
@@ -34,6 +36,7 @@ function read () {
 // update       _____4_____
 function edit(index: number) {
     toggleTodo()
+    currentIndex = index
     updateInp.value = storeData[index]
 }
 
@@ -51,14 +54,15 @@ function toggleTodo () {
         todoCont.className = "";
         updateCont.className += " hide";
     }
-    isEditing = true
+    isEditing = !isEditing;
 }
 
 // save _____6_____
 
 function save (ind: number) {
-   console.log( storeData.splice(ind, 1, updateInp.value ))
-   read()
+    toggleTodo()
+    storeData[currentIndex] = updateInp.value
+    read()
 
 }
 
@@ -68,3 +72,8 @@ function deleteFun(index: number) {
     storeData.splice(index, 1)
     read()
 }
+
+
+
+
+// codepen
